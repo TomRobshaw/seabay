@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_21_042705) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_21_061728) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bids", force: :cascade do |t|
     t.float "value", null: false
-    t.boolean "status", null: false
     t.bigint "listings_id"
     t.bigint "users_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
     t.index ["listings_id"], name: "index_bids_on_listings_id"
     t.index ["users_id"], name: "index_bids_on_users_id"
   end
