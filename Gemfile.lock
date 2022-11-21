@@ -103,6 +103,9 @@ GEM
       responders
       warden (~> 1.2.3)
     erubi (1.11.0)
+    ffi (1.15.5)
+    font-awesome-sass (6.2.1)
+      sassc (~> 2.0)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -135,7 +138,11 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
+
     nokogiri (1.13.9-arm64-darwin)
+
+    nokogiri (1.13.9-x86_64-darwin)
+
       racc (~> 1.4)
     nokogiri (1.13.9-x86_64-linux)
       racc (~> 1.4)
@@ -183,6 +190,14 @@ GEM
       railties (>= 5.0)
     rexml (3.2.5)
     rubyzip (2.3.2)
+    sassc (2.4.0)
+      ffi (~> 1.9)
+    sassc-rails (2.1.2)
+      railties (>= 4.0.0)
+      sassc (>= 2.0)
+      sprockets (> 3.0)
+      sprockets-rails
+      tilt
     selenium-webdriver (4.6.1)
       childprocess (>= 0.5, < 5.0)
       rexml (~> 3.2, >= 3.2.5)
@@ -198,6 +213,7 @@ GEM
     stimulus-rails (1.1.1)
       railties (>= 6.0.0)
     thor (1.2.1)
+    tilt (2.0.11)
     timeout (0.3.0)
     turbo-rails (1.3.2)
       actionpack (>= 6.0.0)
@@ -225,7 +241,11 @@ GEM
     zeitwerk (2.6.6)
 
 PLATFORMS
+
   arm64-darwin-21
+
+  x86_64-darwin-21
+
   x86_64-linux
 
 DEPENDENCIES
@@ -233,11 +253,13 @@ DEPENDENCIES
   capybara
   debug
   devise
+  font-awesome-sass (~> 6.1)
   jbuilder
   jsbundling-rails
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4)
+  sassc-rails
   selenium-webdriver
   simple_form!
   sprockets-rails
