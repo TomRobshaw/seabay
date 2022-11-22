@@ -16,13 +16,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_062134) do
 
   create_table "bids", force: :cascade do |t|
     t.float "value", null: false
-    t.bigint "listings_id"
-    t.bigint "users_id"
+    t.bigint "listing_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
-    t.index ["listings_id"], name: "index_bids_on_listings_id"
-    t.index ["users_id"], name: "index_bids_on_users_id"
+    t.index ["listing_id"], name: "index_bid_on_listing_id"
+    t.index ["user_id"], name: "index_bid_on_user_id"
   end
 
   create_table "listings", force: :cascade do |t|
@@ -36,10 +36,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_062134) do
 
   create_table "purchases", force: :cascade do |t|
     t.boolean "status", null: false
-    t.bigint "bids_id"
+    t.bigint "bid_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["bids_id"], name: "index_purchases_on_bids_id"
+    t.index ["bid_id"], name: "index_purchase_on_bid_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,7 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_062134) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "bids", "listings", column: "listings_id"
-  add_foreign_key "bids", "users", column: "users_id"
-  add_foreign_key "purchases", "bids", column: "bids_id"
+  add_foreign_key "bids", "listings", column: "listing_id"
+  add_foreign_key "bids", "users", column: "user_id"
+  add_foreign_key "purchases", "bids", column: "bid_id"
 end
