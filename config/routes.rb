@@ -10,3 +10,4 @@ Rails.application.routes.draw do
   resources :listings, only: [:index, :new, :create, :show] do
     resources :bids, only: [:new, :create]
   end
+end
