@@ -1,0 +1,11 @@
+<h1> Welcome to your '<%= @listing.title %>' bidding page! </h1>
+
+
+<div>
+  <%= simple_form_for [@listing, @bid] do |b| %>
+    <%= b.input :value, label: "Place your bid" %>
+    <div ><%= b.button :submit, :class => 'btn btn-info', data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to bid on this listing?" }%></div>
+  <% end %>
+
+  <%# redirect to ???? %>
+</div>

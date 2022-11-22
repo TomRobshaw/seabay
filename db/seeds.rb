@@ -9,29 +9,34 @@
 Listing.create!(
   title: 'Luxury Villa',
   description: 'A stunning home overlooking Queenscliff',
-  price: 1_400_000
+  price: 1_400_000,
+  image: "https://res.cloudinary.com/dapgryo75/image/upload/v1669097428/Luxury_villa_b8uvcr.jpg"
 )
 
 Listing.create!(
   title: 'Farm of George',
   description: 'An amazing farm homestead owned by the Tailwind CEO',
-  price: 4_000_000
+  price: 4_000_000,
+  image: "https://res.cloudinary.com/dapgryo75/image/upload/v1669097513/oakleigh-farmstay_gmuwvj.jpg"
 )
 
 Listing.create!(
-  title: 'Beach shack',
-  description: 'Beach side living at an affordable price',
-  price: 700_000
+  title: 'Beach Box',
+  description: 'Beach box on the Melbourne beachfront at Brighton',
+  price: 700_000,
+  image: "https://res.cloudinary.com/dapgryo75/image/upload/v1669098621/Beach_box_ag3i8g.jpg"
 )
 
 Listing.create!(
   title: 'Brighton Mansion',
   description: 'Previously owned by Karen of Brighton',
-  price: 6_000_000
+  price: 6_000_000,
+  image: "https://res.cloudinary.com/dapgryo75/image/upload/v1669097428/Brighton_y8jgxd.jpg"
 )
 
 Listing.create!(
   title: 'Beachside cabin',
   description: 'Small cabin at the beachfront of Lang Lang foreshore',
-  price: 180_000
+  price: 180_000,
+  image: "https://res.cloudinary.com/dapgryo75/image/upload/v1669098620/Lang_Lang_tncqs9.jpg"
 )

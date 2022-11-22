@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+<div class="container col-12">
+<h1>Listings</h1>
+  <div id="listings" class="row display-flex flex-wrap-wrap">
+  <% @listings.each do |listing| %>
+  <div class="col-md-4 mt-1">
+    <div class="card">
+      <img src="<%= listing.image %>" class="card-img-top" alt="...">
+        <h4><%= listing.title %></h4>
+        <p><%= listing.description %></p>
+        <p>$<%= listing.price %></p>
+          <div class="card-body">
+            <%= link_to  "Show this Listing", listing, class:"btn btn-primary" %>
+          </div>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= link_to "New listing", new_listing_path, class:"btn btn-primary" %>
+</div>

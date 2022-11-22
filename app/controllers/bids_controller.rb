@@ -2,6 +2,7 @@ class BidsController < ApplicationController
   # value
   # status
   def new
+    @listing = Listing.find(params[:listing_id])
     @bid = Bid.new
   end
 
@@ -20,9 +21,12 @@ class BidsController < ApplicationController
   end
 
   def create
+    @listing = Listing.find(params[:listing_id])
     @bid = Bid.new(bid_params)
+    @bid.listings_id = @listing[:id]
+    # @bid.user_id = @user[:id]
     @bid.save
-    redirect_to bids_path
+    redirect_to bid_path(@listing)
   end
 
   def show
@@ -36,6 +40,7 @@ class BidsController < ApplicationController
   end
 
   private
+
   # private params need work and need to find out why views arnt auto populating
   def bid_params
     params.require(:bid).permit(:value, :status)
