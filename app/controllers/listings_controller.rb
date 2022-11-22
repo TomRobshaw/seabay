@@ -1,21 +1,21 @@
 class ListingsController < ApplicationController
+  before_action :set_listing, only: %i[show edit update destroy]
   def index
-    @listings = Listings.all
+    @listings = Listing.all
   end
 
   def show
-    @listing = Listings.find(params[:id])
+    @listing = Listing.find(params[:id])
   end
 
   def new
     @listing = Listing.new(listing_params)
-    @listing.reserve = @user_reserve
   end
 
   def create
     @listing = Listing.new(listing_params)
     if @listing.save
-      redirect_to list_path(@listing), notice: 'list was successfully created.'
+      redirect_to list_path(@listing), notice: 'listing was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,7 +29,11 @@ class ListingsController < ApplicationController
 
   private
 
+  def set_listing
+    @listing = Listing.find(params[:id])
+  end
+
   def listing_params
-    params.require(:listing).permit(:title, :description)
+    params.require(:listing).permit(:title, :description, :price)
   end
 end
