@@ -35,3 +35,16 @@ Listing.create!(
   description: 'Small cabin at the beachfront of Lang Lang foreshore',
   price: 180_000
 )
+
+User.create(
+  email: "test@email.com",
+  password: "secret",
+  first_name: "steve",
+  last_name: "house"
+)
+
+Bid.create(
+  value: 200,
+  listing_id: 1,
+  user_id: 1
+)
