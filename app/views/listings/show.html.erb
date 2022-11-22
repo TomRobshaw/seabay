@@ -1,1 +1,12 @@
-<h1>Show page</h1>
+<h1><%= @listing.title %></h1>
+  <div id="listing" class="row display-flex flex-wrap-wrap">
+    <div class="card">
+      <img src="https://source.unsplash.com/random/100x100/?img=1" class="card-img-top" alt="...">
+        <h4><%= @listing.title %></h4>
+          <p><%= @listing.description %></p>
+          <p>$<%= @listing.price %></p>
+        <div class="card-body">
+        <%= link_to "Create bid", new_bid_listing_path, class:"btn btn-primary" %>
+        </div>
+      </div>
+  </div>
