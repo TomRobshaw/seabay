@@ -1,22 +1,19 @@
 
-<div>
-
-  <h1>Seabay</h1>
-  <h2>The Home Auction Marketplace</h2>
-  <p>Find and bid on homes of your wildest imaginations</p>
-  <button>Bid Now</button>
-  <button>Sign up</button>
+<div class="container">
+  <div>
+    <h1> Welcome to Seabay</h1>
+    <h2>The Home Auction Marketplace</h2>
+    <p>Find and bid on homes of your wildest imaginations</p>
+    <button>Bid Now</button>
+    <button>Sign up</button>
+  </div>
 
   <h3>Popular Listings</h3>
-  <p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="row">
     <%  @listings.each do |listing| %>
-      <div>
-        <p><%= listing.title %></p>
-        <p><%= listing.description %></p>
-        <p><%= listing.price %></p>
+      <div class="col-12 col-md-6 col-lg-4 pb-4">
+        <%= render listing %>
       </div>
     <% end %>
-
-
-
 </div>
