@@ -102,6 +102,10 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.11.0)
     ffi (1.15.5)
     font-awesome-sass (6.2.1)
@@ -138,11 +142,9 @@ GEM
     net-smtp (0.3.3)
       net-protocol
     nio4r (2.5.8)
-
     nokogiri (1.13.9-arm64-darwin)
-
+      racc (~> 1.4)
     nokogiri (1.13.9-x86_64-darwin)
-
       racc (~> 1.4)
     nokogiri (1.13.9-x86_64-linux)
       racc (~> 1.4)
@@ -241,11 +243,8 @@ GEM
     zeitwerk (2.6.6)
 
 PLATFORMS
-
   arm64-darwin-21
-
   x86_64-darwin-21
-
   x86_64-linux
 
 DEPENDENCIES
@@ -253,6 +252,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  dotenv-rails
   font-awesome-sass (~> 6.1)
   jbuilder
   jsbundling-rails
