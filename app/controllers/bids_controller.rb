@@ -31,6 +31,8 @@ class BidsController < ApplicationController
 
   def show
     @bid = Bid.find(params[:id])
+    # @listing = Listing.find(params[:id])
+    # @bid.listing = @bid
   end
 
   def destroy
