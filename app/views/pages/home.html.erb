@@ -1,19 +1,22 @@
 
 <div class="container">
-  <div>
-    <h1> Welcome to Seabay</h1>
-    <h2>The Home Auction Marketplace</h2>
-    <p>Find and bid on homes of your wildest imaginations</p>
-    <button>Bid Now</button>
-    <button>Sign up</button>
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url(https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1175&q=80);">
+    <div class="container">
+        <div class="banner-content">
+          <h1 class="display-1"><strong>Seabay</strong></h1>
+          <h2>The Home Auction Marketplace</h2>
+          <p>Find a home, make a bid</p>
+          <a class="btn btn-primary btn-lg" href="#" role="button">Bid Now</a>
+        </div>
+    </div>
   </div>
 
-  <h3>Popular Listings</h3>
-
-<div class="row">
+  <div class="row">
+    <h3>Popular Listings</h3>
     <%  @listings.each do |listing| %>
       <div class="col-12 col-md-6 col-lg-4 pb-4">
         <%= render listing %>
       </div>
     <% end %>
+  </div>
 </div>
