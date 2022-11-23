@@ -1,17 +1,40 @@
-<h1>Welcome to your bids</h1>
+<%# <h1>Welcome to your bids</h1>
 
 <p>Check out your bidding history</p>
 <%# <h5>Listing.where(id: bid.listings_id).price</h5> %>
-<button type="button">Return to the main page!</button>
-<br>
-
+<%# <button type="button">Return to the main page!</button>
+<br> %>
+<%#
 <% @bids.each do |bid| %>
-  <%= bid.listing.title %>
+  <%# <%= bid.listing.title
   <%= bid.status %>
-  <br>
-  <%= bid.value %>
+  <%# <br> %>
+  <%# <%= bid.value %>
 
-<% end %>
-<br>
+<%# <% end %>
+<%# <br> %>
 
-<button type="button">Return to the main page!</button>
+<%# <button type="button"><%= link_to  "Show this Listing", listings_path, class:"btn btn-primary" %>Return to the main page!</button> %>
+<p style="color: green"><%= notice %></p>
+<div class="container col-12">
+<h1>Welcome to your bids</h1>
+  <div id="bids" class="row display-flex flex-wrap-wrap">
+  <% @bids.each do |bid| %>
+  <div class="col-md-4 mt-1">
+    <div class="card">
+      <img src="<%= bid.listing.image %>" class="card-img-top" alt="...">
+        <h4><%= bid.listing.title %></h4>
+        <p><%= bid.listing.description %></p>
+        <p>Listing price: $<%= bid.listing.price %></p>
+        <p>Your bid: $<%= bid.value %></p>
+        <p>bid status: <%= bid.status %></p>
+          <div class="card-body">
+            <%= link_to  "Show this Listing", listing_path(id: bid.listing.id), class:"btn btn-primary" %>
+          </div>
+        </p>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%# <%= link_to "New listing", new_listing_path, class:"btn btn-primary" %>
+</div>
