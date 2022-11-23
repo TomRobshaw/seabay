@@ -23,10 +23,14 @@ class BidsController < ApplicationController
   def create
     @listing = Listing.find(params[:listing_id])
     @bid = Bid.new(bid_params)
-    @bid.listings_id = @listing[:id]
+    @bid.user = current_user
+    @bid.listing = @listing
     # @bid.user_id = @user[:id]
-    @bid.save
-    redirect_to bids_path
+    if @bid.save
+      redirect_to bids_path, status: :see_other
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def show

@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Listing.destroy_all
+Bid.destroy_all
+User.destroy_all
 
 Listing.create!(
   title: 'Luxury Villa',
@@ -41,15 +44,17 @@ Listing.create!(
   image: "https://res.cloudinary.com/dapgryo75/image/upload/v1669098620/Lang_Lang_tncqs9.jpg"
 )
 
-User.create(
+user = User.create(
   email: "test@email.com",
   password: "secret",
   first_name: "steve",
   last_name: "house"
 )
 
-Bid.create(
-  value: 200,
-  listing_id: 1,
-  user_id: 1
-)
+# Listing.all.each do |listing|
+#   Bid.create!(
+#     value: 200,
+#     listing: listing,
+#     user: user
+#   )
+# end
