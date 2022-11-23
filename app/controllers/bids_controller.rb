@@ -26,7 +26,7 @@ class BidsController < ApplicationController
     @bid.listings_id = @listing[:id]
     # @bid.user_id = @user[:id]
     @bid.save
-    redirect_to bid_path(@listing)
+    redirect_to bids_path
   end
 
   def show
