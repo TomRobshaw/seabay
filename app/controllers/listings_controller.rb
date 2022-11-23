@@ -9,7 +9,7 @@ class ListingsController < ApplicationController
   end
 
   def new
-    @listing = Listing.new(listing_params)
+    @listing = Listing.new
   end
 
   def create
