@@ -1,12 +1,14 @@
-<h1><%= @listing.title %></h1>
-  <div id="listing" class="row display-flex flex-wrap-wrap">
-    <div class="card">
-      <img src="<%= @listing.image %>" class="card-img-top" alt="...">
-        <h4><%= @listing.title %></h4>
-          <p><%= @listing.description %></p>
-          <p>$<%= @listing.price %></p>
-        <div class="card-body">
-        <%= link_to "Create bid", new_listing_bid_path(@listing), class:"btn btn-primary" %>
+<div class="container">
+  <h1><%= @listing.title %></h1>
+    <div id="listing" class="row display-flex flex-wrap-wrap">
+      <div class="card">
+        <img src="<%= @listing.image %>" class="card-img-top" alt="...">
+          <h4><%= @listing.title %></h4>
+            <p><%= @listing.description %></p>
+            <p>$<%= @listing.price %></p>
+          <div class="card-body">
+          <%= link_to "Create bid", new_listing_bid_path(@listing), class:"btn btn-primary" %>
+          </div>
         </div>
-      </div>
+    </div>
   </div>
