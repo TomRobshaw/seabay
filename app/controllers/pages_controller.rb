@@ -4,4 +4,7 @@ class PagesController < ApplicationController
   def home
     @listings = Listing.all
   end
+  def your_listings
+    @listings = Listing.where(user_id: current_user.id)
+  end
 end
