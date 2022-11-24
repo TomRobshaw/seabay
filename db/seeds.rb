@@ -4,6 +4,8 @@ Listing.destroy_all
 Bid.destroy_all
 User.destroy_all
 
+puts "seeding..."
+
 listing = Listing.new(
   title: 'Luxury Villa',
   description: 'A stunning home overlooking Queenscliff',
@@ -62,3 +64,5 @@ User.create(
   first_name: "steve",
   last_name: "house"
 )
+
+puts "seeding completed"

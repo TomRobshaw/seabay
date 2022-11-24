@@ -1,6 +1,13 @@
 // Specific CSS for your home-page
 .container {
   max-width: 1100px;
+  margin: 0px;
+}
+
+.container-main {
+  width: 1100px;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 .flex-container {
@@ -12,7 +19,7 @@
   width: 300px;
 }
 
-.btn-primary {
+.btn-primary{
   background-color: #0a8bcc;
   transition-duration: 0.6s;
   border: none;
@@ -22,6 +29,10 @@
   background-color: #3facd4; /* Green */
   color: white;
   border: none;
+}
+
+.add-btn {
+  width: 300px;
 }
 
 // .listing-header {
