@@ -10,6 +10,7 @@
         </div>
         <div class="profile-content mt-4">
           <h4 class="card-title mb-2"><%= @listing.title %></h4>
+          <p class="card-subtitle mb-2"><%= @listing.location %></p>
           <p class="card-subtitle mb-2"><%= @listing.description %></p>
           <p class="card-text">$<%= @listing.price.round(0) %></p>
           <%= link_to "Make bid", new_listing_bid_path(@listing), class:"btn btn-primary btn-lg" %>

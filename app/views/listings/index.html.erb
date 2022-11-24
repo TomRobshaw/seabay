@@ -31,6 +31,7 @@
           <%= cl_image_tag listing.image.key, crop: :fill, class:"card-img-top" %>
               <div class="card-body">
                 <h4 class="card-title"><strong><%= listing.title %></strong></h4>
+                <h6 class="card-subtitle mb-2 text-muted"><%= listing.location %></h6>
                 <h6 class="card-subtitle mb-2 text-muted"><%= listing.description %></h6>
                 <p class="card-text"> <strong>$<%= listing.price.round(0) %></strong></p>
                 <%= link_to  "View Home", listing, class:"btn btn-primary" %>
