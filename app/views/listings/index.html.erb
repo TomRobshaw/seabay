@@ -1,10 +1,14 @@
 
 <div class="container col-12">
+
+      <h1>Listings</h1>
+
   <h1 class="mb-4 mt-4">Listings</h1>
   <%= link_to "Add new list", new_listing_path, class:"btn btn-primary btn-lg mb-4" %>
   <hr size="2px" width="100%" color="gray">
   <h3> Current Lists</h3>
   <p>Below are the lastest homes which have been bidded on. Select a home and make a bid.</p>
+
   <div id="listings" class="row display-flex flex-wrap-wrap">
   <% @listings.each do |listing| %>
   <div class="col-md-4 mt-1">
@@ -19,8 +23,10 @@
             <p class="card-text"> <strong>$<%= listing.price %></strong></p>
             <%= link_to  "View Home", listing, class:"btn btn-primary" %>
           </div>
+
         </div>
       </div>
     <% end %>
   </div>
 </div>
+

@@ -5,4 +5,39 @@
 
 .flex-container {
   display: flex;
+  justify-content: center;
 }
+
+.form-control {
+  width: 300px;
+}
+
+.btn-primary {
+  background-color: #0a8bcc;
+  transition-duration: 0.6s;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #3facd4; /* Green */
+  color: white;
+  border: none;
+}
+
+// .listing-header {
+
+// }
+
+// .btn-primary {
+//   background-color: #30557f;
+//   transition-duration: 0.6s;
+// }
+
+// .btn-primary:hover {
+//   background-color: #a9c4dd; /* Green */
+//   color: white;
+//   border: none;
+// }
+// .flex-container {
+//   display: flex;
+// }
