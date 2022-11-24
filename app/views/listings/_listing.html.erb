@@ -5,7 +5,7 @@
       <p class style ="width: 100%; font-size: 24px; font-weight: 600; line-height: 20px; color: black;"><%= listing.title %></p>
       <p class style ="width: 100%; font-size: 18px; font-weight: 400; line-height: 20px; color: black;"><%= listing.description %></p>
       <p style ="width: 100%; font-size: 18px; font-weight: 300; line-height: 20px; color: black;"> $<%= listing.price.round(0) %></p>
-      <p> <%= link_to "See More", listings_path(@listing), class: "btn btn-flat" %> </p>
+      <p> <%= link_to "See More", listings_path(@listing), class: "btn btn-primary" %> </p>
     </div>
   </div>
 </div>
