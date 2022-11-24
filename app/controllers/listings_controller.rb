@@ -8,6 +8,10 @@ class ListingsController < ApplicationController
     end
   end
 
+  def change_status
+    @listing = Listing.find(params[:id])
+  end
+
   def show
     @listing = Listing.find(params[:id])
   end
@@ -18,6 +22,7 @@ class ListingsController < ApplicationController
 
   def create
     @listing = Listing.new(listing_params)
+    @listing.user_id = current_user.id
     if @listing.save
       redirect_to listings_path(@listing), notice: 'listing was successfully created.'
     else
