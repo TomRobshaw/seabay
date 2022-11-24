@@ -8,8 +8,8 @@
      <%= cl_image_tag bid.listing.image.key, crop: :fill, class:"card-img-top" %>
         <h4><%= bid.listing.title %></h4>
         <p><%= bid.listing.description %></p>
-        <p>Listing price: $<%= bid.listing.price %></p>
-        <p>Your bid: $<%= bid.value %></p>
+        <p>Listing price: $<%= bid.listing.price.round(0) %></p>
+        <p>Your bid: $<%= bid.value.round(0) %></p>
         <p>bid status: <%= bid.status %></p>
           <div class="card-body">
             <%= link_to  "Show this Listing", listing_path(id: bid.listing.id), class:"btn btn-primary" %>
