@@ -1,60 +1,64 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+require "open-uri"
+
 Listing.destroy_all
 Bid.destroy_all
 User.destroy_all
 
-Listing.create!(
+listing = Listing.new(
   title: 'Luxury Villa',
   description: 'A stunning home overlooking Queenscliff',
   price: 1_400_000,
-  image: "https://res.cloudinary.com/dapgryo75/image/upload/v1669097428/Luxury_villa_b8uvcr.jpg"
+  location: "4 St Andrews Street, Queenscliff, Vic, 3225"
 )
+file = URI.open("https://res.cloudinary.com/dapgryo75/image/upload/v1669097428/Luxury_villa_b8uvcr.jpg")
+listing.image.attach(io: file, filename: "Farm_of_george", content_type: "image/jpg")
+listing.save
 
-Listing.create!(
+listing = Listing.new(
   title: 'Farm of George',
   description: 'An amazing farm homestead owned by the Tailwind CEO',
   price: 4_000_000,
-  image: "https://res.cloudinary.com/dapgryo75/image/upload/v1669097513/oakleigh-farmstay_gmuwvj.jpg"
+  location: "529 Cudgen Road, Cudgen, Nsw, 2487"
 )
+file = URI.open("https://res.cloudinary.com/dapgryo75/image/upload/v1669097513/oakleigh-farmstay_gmuwvj.jpg")
+listing.image.attach(io: file, filename: "Farm_of_george", content_type: "image/jpg")
+listing.save
 
-Listing.create!(
+listing = Listing.new(
   title: 'Beach Box',
   description: 'Beach box on the Melbourne beachfront at Brighton',
   price: 700_000,
-  image: "https://res.cloudinary.com/dapgryo75/image/upload/v1669098621/Beach_box_ag3i8g.jpg"
+  location: "40 Bathing Box, Brighton, Vic, 3186"
 )
+file = URI.open("https://res.cloudinary.com/dapgryo75/image/upload/v1669098621/Beach_box_ag3i8g.jpg")
+listing.image.attach(io: file, filename: "Beach_box", content_type: "image/jpg")
+listing.save
 
-Listing.create!(
+listing = Listing.new(
   title: 'Brighton Mansion',
   description: 'Previously owned by Karen of Brighton',
   price: 6_000_000,
-  image: "https://res.cloudinary.com/dapgryo75/image/upload/v1669097428/Brighton_y8jgxd.jpg"
+  location: "39 Seacombe Grove, Brighton, Vic, 3186"
 )
+file = URI.open("https://res.cloudinary.com/dapgryo75/image/upload/v1669097428/Brighton_y8jgxd.jpg")
+listing.image.attach(io: file, filename: "Brighton_mansion", content_type: "image/jpg")
+listing.save
 
-Listing.create!(
+
+listing = Listing.new(
   title: 'Beachside cabin',
   description: 'Small cabin at the beachfront of Lang Lang foreshore',
   price: 180_000,
-  image: "https://res.cloudinary.com/dapgryo75/image/upload/v1669098620/Lang_Lang_tncqs9.jpg"
+  location: "174 Jetty Road, Jam Jerrup, Vic, 3984"
 )
 
-user = User.create(
+file = URI.open("https://res.cloudinary.com/dapgryo75/image/upload/v1669098620/Lang_Lang_tncqs9.jpg")
+listing.image.attach(io: file, filename: "Beachside_cabin", content_type: "image/jpg")
+listing.save
+
+User.create(
   email: "test@email.com",
   password: "secret",
   first_name: "steve",
   last_name: "house"
 )
-
-# Listing.all.each do |listing|
-#   Bid.create!(
-#     value: 200,
-#     listing: listing,
-#     user: user
-#   )
-# end
