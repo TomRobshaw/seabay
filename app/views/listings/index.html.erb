@@ -1,19 +1,32 @@
-<p style="color: green"><%= notice %></p>
+
 <div class="container col-12">
+
       <h1>Listings</h1>
+
+  <h1 class="mb-4 mt-4">Listings</h1>
+  <%= link_to "Add new list", new_listing_path, class:"btn btn-primary btn-lg mb-4" %>
+  <hr size="2px" width="100%" color="gray">
+  <h3> Current Lists</h3>
+  <p>Below are the lastest homes which have been bidded on. Select a home and make a bid.</p>
+
   <div id="listings" class="row display-flex flex-wrap-wrap">
   <% @listings.each do |listing| %>
   <div class="col-md-4 mt-1">
     <div class="card">
-      <img src="<%= listing.image %>" class="card-img-top" alt="...">
+       <%= cl_image_tag listing.image.key, crop: :fill, class:"card-img-top" %>
         <h4><%= listing.title %></h4>
         <p><%= listing.description %></p>
-        <p>$<%= listing.price %></p>
+        <p>$<%= listing.price.round(0) %></p>
           <div class="card-body">
-            <%= link_to  "Show this Listing", listing, class:"btn btn-primary" %>
+            <h4 class="card-title"><strong><%= listing.title %></strong></h4>
+            <h6 class="card-subtitle mb-2 text-muted"><%= listing.description %></h6>
+            <p class="card-text"> <strong>$<%= listing.price %></strong></p>
+            <%= link_to  "View Home", listing, class:"btn btn-primary" %>
           </div>
-          <%= link_to "New listing", new_listing_path, class:"btn btn-primary" %>
-        </p>
+
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
+</div>
+
