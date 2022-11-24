@@ -3,4 +3,5 @@ class Listing < ApplicationRecord
   validates :title, presence: true
   validates :price, presence: true
   validates :description, length: { minimum: 10 }
+  has_one_attached :image
 end
