@@ -15,7 +15,7 @@ user = User.create(
 
 listing = Listing.new(
   title: 'Luxury Villa',
-  description: 'A stunning home overlooking Queenscliff',
+  description: 'A stunning home overlooking Queenscliff, must see',
   price: 1_400_000,
   location: "4 St Andrews Street, Queenscliff, Vic, 3225",
   user: user,
