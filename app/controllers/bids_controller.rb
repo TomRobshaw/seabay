@@ -13,10 +13,14 @@ class BidsController < ApplicationController
   def update
     @bid = Bid.find(params[:id])
     # @bid = bid.save
-    if @bid.update(bid_params)
-      redirect_to bids_path, status: :see_other, notice: "Bid created successfully"
-    else
-      redirect_to bids_path, status: :unprocessable_entity, alert: "Something went wrong when creating bid"
+    respond_to do |format|
+      if @bid.update(bid_params)
+        format.turbo_stream
+        format.html { redirect_to bids_path, status: :see_other, notice: "Bid created successfully" }
+      else
+        format.turbo_stream
+        format.html { redirect_to bids_path, status: :unprocessable_entity, alert: "Something went wrong when creating bid" }
+      end
     end
   end
 
@@ -29,9 +33,8 @@ class BidsController < ApplicationController
     @bid = Bid.new(bid_params)
     @bid.user = current_user
     @bid.listing = @listing
-    # @bid.user_id = @user[:id]
     if @bid.save
-      redirect_to bids_path, status: :see_other
+      redirect_to your_bids_path, status: :see_other
     else
       render :new, status: :unprocessable_entity
     end

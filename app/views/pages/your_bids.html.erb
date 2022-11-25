@@ -11,6 +11,24 @@
         <p><%= bid.listing.description %></p>
         <p>$<%= bid.listing.price.round(0) %></p>
         <p>$<%= bid.value.round(0) %></p>
+        <% if !bid.listing.user == current_user %>
+          <%= turbo_frame_tag dom_id(bid, :status_dropdown) do %>
+            <div class="dropdown">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <%= bid.status %>
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <% Bid.statuses.keys.each do |status| %>
+                  <li>
+                    <%= link_to status, bid_path(bid, bid: { status: status }), data: {turbo_method: :patch}, class: 'dropdown-item' %>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+        <% else %>
+          <p>bid status: <%= bid.status %></p>
+        <% end %>
           <div class="card-body">
             <%= link_to  "Show this Listing", bid.listing, class:"btn btn-primary" %>
           </div>

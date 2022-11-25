@@ -1,0 +1,3 @@
+<%= turbo_stream.replace dom_id(@bid, :status_dropdown) do %>
+   <%= render 'bids/status_dropdown', bid: @bid %>
+<% end %>

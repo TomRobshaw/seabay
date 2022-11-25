@@ -1,5 +1,6 @@
-<div class="container mx-auto">
-  <h1>Listings</h1>
+<% if false %>
+  <div class="container col-12">
+ <h1>Listings</h1>
     <div id="listings" class="row display-flex flex-wrap-wrap">
     <% @listings.each do |listing| %>
 
@@ -11,8 +12,21 @@
           <p><%= listing.description %></p>
           <p>$<%= listing.price.round(0) %></p>
             <div class="card-body">
+            <%= turbo_frame_tag dom_id(@bid, :status_dropdown) do %>
+              <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <%= @bid.status %>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                  <% Bid.statuses.keys.each do |status| %>
+                    <li>
+                      <%= link_to status, bid_path(@bid, bid: { status: status }), data: {turbo_method: :patch}, class: 'dropdown-item' %>
+                    </li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
               <%= link_to  "Show this Listing", listing, class:"btn btn-primary" %>
-              <%= link_to "accept", listing, class:"btn btn-primary" %>
             </div>
           </p>
         </div>
@@ -20,4 +34,62 @@
     <% end %>
   </div>
   <%= link_to "New listing", new_listing_path, class:"btn btn-primary" %>
+  </div>
+<% end %>
+
+<div class="container">
+  <table class="min-w-full leading-normal">
+    <thead>
+      <tr>
+        <th
+          class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+          Listing
+        </th>
+        <th
+          class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+          User
+        </th>
+        <th
+          class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+          Bid
+        </th>
+        <th
+          class="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
+          Status
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @bids.each do |bid| %>
+        <% listing = bid.listing %>
+        <tr>
+          <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+            <div class="flex items-center">
+              <div class="flex-shrink-0 w-10 h-10">
+                <img class="w-full h-full rounded-full"
+                                          src="<%= cl_image_path(listing.image&.key, width: 100, height: 100, crop: :fill) %>"
+                                          alt="" />
+              </div>
+              <div class="ml-3">
+                <p class="text-gray-900 whitespace-no-wrap">
+                  <%= listing.title %>
+                </p>
+              </div>
+            </div>
+          </td>
+          <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+            <p class="text-gray-900 whitespace-no-wrap"><%= bid.user.email %></p>
+          </td>
+          <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+            <p class="text-gray-900 whitespace-no-wrap">
+              $<%= bid.value %>
+            </p>
+          </td>
+          <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+            <%= render 'bids/status_dropdown', bid: bid %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>

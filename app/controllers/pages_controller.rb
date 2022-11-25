@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
   def your_listings
     @listings = Listing.where(user_id: current_user.id)
+    @bids = Bid.where(listing_id: Listing.where(user_id: current_user.id))
   end
 
   def your_bids
