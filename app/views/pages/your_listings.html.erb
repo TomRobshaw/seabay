@@ -1,41 +1,21 @@
-<% if false %>
-  <div class="container col-12">
- <h1>Listings</h1>
-    <div id="listings" class="row display-flex flex-wrap-wrap">
-    <% @listings.each do |listing| %>
 
-    <div class="col-md-4 mt-1">
-      <div class="card">
-        <%= cl_image_tag listing.image.key, crop: :fill, class:"card-img-top" %>
-          <h4><%= listing.title %></h4>
-          <p><%= listing.location %></p>
-          <p><%= listing.description %></p>
-          <p>$<%= listing.price.round(0) %></p>
-            <div class="card-body">
-            <%= turbo_frame_tag dom_id(@bid, :status_dropdown) do %>
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                  <%= @bid.status %>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                  <% Bid.statuses.keys.each do |status| %>
-                    <li>
-                      <%= link_to status, bid_path(@bid, bid: { status: status }), data: {turbo_method: :patch}, class: 'dropdown-item' %>
-                    </li>
-                  <% end %>
-                </ul>
+   <div id="listings" class="row display-flex flex-wrap-wrap">
+    <% @listings.each do |listing| %>
+      <div class="col-md-4 mt-4 mb-4">
+        <div class="card">
+          <%= cl_image_tag listing.image.key, crop: :fill, class:"card-img-top" %>
+              <div class="card-body">
+                <h4 class="card-title"><strong><%= listing.title %></strong></h4>
+                <h6 class="card-subtitle mb-2 text-muted"><%= listing.location %></h6>
+                <p class="card-caption mb-2"><%= listing.description %></p>
+                <p class="card-text"> <strong>$<%= listing.price.round(0) %></strong></p>
+                <%= link_to  "View Your Listing", listing, class:"btn btn-primary" %>
               </div>
-            <% end %>
-              <%= link_to  "Show this Listing", listing, class:"btn btn-primary" %>
             </div>
-          </p>
-        </div>
-      </div>
+          </div>
     <% end %>
   </div>
-  <%= link_to "New listing", new_listing_path, class:"btn btn-primary" %>
-  </div>
-<% end %>
+
 
 <div class="container">
   <table class="min-w-full leading-normal">
