@@ -92,5 +92,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_054138) do
   add_foreign_key "bids", "listings"
   add_foreign_key "bids", "users"
   add_foreign_key "listings", "users"
-  add_foreign_key "purchases", "bids"
+  add_foreign_key "purchases", "bids", column: "bids_id"
 end
