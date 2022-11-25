@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 <div class="container col-12">
-<h1>Welcome to your bids</h1>
+<h1>Active bids</h1>
   <div id="bids" class="row display-flex flex-wrap-wrap">
   <% @bids.each do |bid| %>
   <div class="col-md-4 mt-1">
@@ -10,26 +10,9 @@
         <p><%= bid.listing.location %></p>
         <p><%= bid.listing.description %></p>
         <p>Listing price: $<%= bid.listing.price.round(0) %></p>
-        <p>Your bid: $<%= bid.value.round(0) %></p>
+        <p>Current bid: $<%= bid.value.round(0) %></p>
 
-        <% if bid.listing.user == current_user %>
-          <%= turbo_frame_tag dom_id(bid, :status_dropdown) do %>
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                <%= bid.status %>
-              </button>
-              <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <% Bid.statuses.keys.each do |status| %>
-                  <li>
-                    <%= link_to status, bid_path(bid, bid: { status: status }), data: {turbo_method: :patch}, class: 'dropdown-item' %>
-                  </li>
-                <% end %>
-              </ul>
-            </div>
-          <% end %>
-        <% else %>
-          <p>bid status: <%= bid.status %></p>
-        <% end %>
+
 
           <div class="card-body">
             <%= link_to  "Show this Listing", listing_path(id: bid.listing.id), class:"btn btn-primary" %>

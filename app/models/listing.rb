@@ -5,7 +5,7 @@ class Listing < ApplicationRecord
   validates :location, presence: true
   validates :price, presence: true
   validates :description, length: { minimum: 10 }
-
+  enum :status, { pending: 0, accepted: 1, declined: 2 }
 
   include PgSearch::Model
   pg_search_scope :search_by_title_and_by_location,

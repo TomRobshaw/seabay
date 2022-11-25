@@ -1,0 +1,14 @@
+<div id="<%= dom_id(bid, :status_dropdown) %>">
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      <%= bid.status %>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <% Bid.statuses.keys.each do |status| %>
+        <li>
+          <%= link_to status, bid_path(bid, bid: { status: status }), data: {turbo_method: :patch}, class: 'dropdown-item' %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
