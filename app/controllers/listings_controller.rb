@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
   before_action :set_listing, only: %i[show edit update destroy]
   def index
     if params[:query].present?
-      @listings = Listing.search_by_title(params[:query])
+      @listings = Listing.search_by_title_and_by_location(params[:query])
     else
       @listings = Listing.all
     end
@@ -43,6 +43,6 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    params.require(:listing).permit(:title, :description, :price, :image)
+    params.require(:listing).permit(:title, :location, :description, :price, :image)
   end
 end
