@@ -21,18 +21,19 @@
             <%= link_to "Add new listing", new_listing_path, class:"btn btn-primary add-list btn-md mb-4" %>
           </div>
     </div>
+
   <p>Below are the latest homes available. Select a home and make a bid.</p>
 
 
   <div id="listings" class="row display-flex flex-wrap-wrap">
     <% @listings.each do |listing| %>
-      <div class="col-md-4 mt-1">
+      <div class="col-md-4 mt-4 mb-4">
         <div class="card">
           <%= cl_image_tag listing.image.key, crop: :fill, class:"card-img-top" %>
               <div class="card-body">
                 <h4 class="card-title"><strong><%= listing.title %></strong></h4>
                 <h6 class="card-subtitle mb-2 text-muted"><%= listing.location %></h6>
-                <h6 class="card-subtitle mb-2 text-muted"><%= listing.description %></h6>
+                <p class="card-caption mb-2"><%= listing.description %></p>
                 <p class="card-text"> <strong>$<%= listing.price.round(0) %></strong></p>
                 <%= link_to  "View Home", listing, class:"btn btn-primary" %>
               </div>

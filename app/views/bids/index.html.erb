@@ -1,3 +1,4 @@
+
 <p style="color: green"><%= notice %></p>
 <div class="container col-12">
 <h1>Active bids</h1>
@@ -11,16 +12,14 @@
         <p><%= bid.listing.description %></p>
         <p>Listing price: $<%= bid.listing.price.round(0) %></p>
         <p>Current bid: $<%= bid.value.round(0) %></p>
-
-
-
-          <div class="card-body">
-            <%= link_to  "Show this Listing", listing_path(id: bid.listing.id), class:"btn btn-primary" %>
+              <div class="card-body">
+                <%= link_to  "Show this Listing", listing_path(id: bid.listing.id), class:"btn btn-primary" %>
+              </div>
+            </p>
           </div>
-        </p>
-      </div>
-    </div>
-  <% end %>
-</div>
-<%# <%= link_to "New listing", new_listing_path, class:"btn btn-primary" %>
+        </div>
+      <% end %>
+  </div>
+  <%# <%= link_to "New listing", new_listing_path, class:"btn btn-primary" %>
+  </div>
 </div>
