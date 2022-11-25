@@ -11,9 +11,13 @@ class BidsController < ApplicationController
   end
 
   def update
-    @bid = Bid.update(bid_params)
+    @bid = Bid.find(params[:id])
     # @bid = bid.save
-    redirect_to bid_path(@bid)
+    if @bid.update(bid_params)
+      redirect_to bids_path, status: :see_other, notice: "Bid created successfully"
+    else
+      redirect_to bids_path, status: :unprocessable_entity, alert: "Something went wrong when creating bid"
+    end
   end
 
   def index
