@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container mx-auto" style="height: 100vh;">
   <h1> Welcome to the '<%= @listing.title %>' bidding page! </h1>
-  <div>
+  <div class="row">
     <%= simple_form_for [@listing, @bid] do |b| %>
-      <%= b.input :value, label: "Place your bid" %>
+    <%= b.input :value, label: "Place your bid" %>
     <%= b.submit :submit, class:"btn btn-primary", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to bid on this listing?" }%>
     <% end %>
   </div>
